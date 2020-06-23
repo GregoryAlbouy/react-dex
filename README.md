@@ -1,4 +1,4 @@
-# React-dex
+# React-dex ([Live demo](https://gregoryalbouy.github.io/react-dex/build/))
 
 Interactive Pokédex made with React fetching PokéAPI.
 
