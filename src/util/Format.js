@@ -6,7 +6,7 @@ export const pkmnID = (i) => i < 10 ? `00${i}`
                                     : i < 100 ? `0${i}`
                                               : i;
 
-const StatEnum = {
+export const StatEnum = {
   hp: 'hp',
   attack: 'att',
   defense: 'def',
