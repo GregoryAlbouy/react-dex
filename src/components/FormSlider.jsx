@@ -1,13 +1,13 @@
-import'./FormSlider.scss'
+import'./FormSlider.scss';
 import React, { useState } from 'react';
 
 const FormSlider = (props) => {
-  const [value, setValue] = useState(0);
-
   const handleChange = (event) => {
     setValue(event.currentTarget.value);
     props.handleChange(event);
   };
+
+  const [value, setValue] = useState(0);
 
   return (
     <input
@@ -19,6 +19,6 @@ const FormSlider = (props) => {
       onChange={handleChange}
     />
   );
-} 
+};
 
-export default FormSlider
+export default FormSlider;

@@ -1,6 +1,6 @@
 # React-dex
 
-Interactive Pokédex made with React using PokéAPI.
+Interactive Pokédex made with React fetching PokéAPI.
 
 An occasion to practise form handling in React and filter combination logics.
 

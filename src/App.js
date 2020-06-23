@@ -52,9 +52,9 @@ class App extends Component {
       types: (pkmn) => Reduce.hasTypes(pkmn, filters.types),
       gen: (pkmn) => {
         const g = Number.parseInt(filters.gen);
-        const id = Number.parseInt(pkmn.id)
+        const id = Number.parseInt(pkmn.id);
 
-        return g === 0 || (id > genSteps[g-1] && id <= genSteps[g])
+        return g === 0 || (id > genSteps[g-1] && id <= genSteps[g]);
       }
     };
 
@@ -68,8 +68,7 @@ class App extends Component {
     const filteredList = list.filter(applyFilters);
 
     this.setState({ currentList: filteredList });
-
-  }
+  };
 
   render() {
     return (

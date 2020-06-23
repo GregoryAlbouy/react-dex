@@ -1,8 +1,8 @@
+import './Card.scss';
 import React from 'react';
 import Avatar from './Avatar';
 import TypeTag from './TypeTag';
 import * as Format from '../util/Format';
-import './Card.scss';
 
 const Card = (props) => (
   <li className="card">

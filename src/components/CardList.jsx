@@ -1,6 +1,6 @@
-import React from 'react';
 import './CardList.scss';
 import Card from './Card';
+import React from 'react';
 import Loader from './Loader';
 
 const CardList = (props) => {
@@ -20,7 +20,7 @@ const CardList = (props) => {
       ))}
     </ul>
 
-  : <p className="no-match-message">Not even a nibble...</p>;
+    : <p className="no-match-message">Not even a nibble...</p>;
 
   return props.isReady ? showList() : <Loader />;
 }

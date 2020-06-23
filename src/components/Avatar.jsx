@@ -1,5 +1,5 @@
-import React from 'react';
 import './Avatar.scss';
+import React from 'react';
 
 const Avatar = (props) => (
   <div className="img-container">

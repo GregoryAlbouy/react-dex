@@ -3,11 +3,11 @@ import React, { useRef } from 'react';
 
 const TypeTagButton = (props) => {
 
-  const element = useRef(null)
+  const element = useRef(null);
 
   const handleClick = () => {
-    props.onClick(props.typeName, element.current)
-  }
+    props.onClick(props.typeName, element.current);
+  };
 
     return (
       <span
@@ -18,6 +18,6 @@ const TypeTagButton = (props) => {
         {props.typeName}
       </span>
     );
-}
+};
 
-export default TypeTagButton
+export default TypeTagButton;

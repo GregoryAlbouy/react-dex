@@ -24,22 +24,11 @@ const FilterBox = (props) => {
     setFilters(updatedFilters)
   };
 
-  const renderStatFilterInput = (statEnumKey, i) => (
-    <label key={i} className="stat-input">
-      <FormSlider
-        max={MAX_STAT_VALUE}
-        handleChange={(event) => handleFilterChange(event, StatEnum[statEnumKey])}
-      />
-      <span>{statEnumKey}</span>
-    </label>
-  )
-
   const handleGenChange = (event) => {
     setGen(event.currentTarget.value)
     handleFilterChange(event, 'gen')
-  }
+  };
 
-  // change depending on hidden state, not class
   const handleTypeTagButtonClick = (typeName, element) => {
     const slots = [...selectedTags];
     
@@ -48,11 +37,11 @@ const FilterBox = (props) => {
 
       else {
         const erasedValue = slots[1];
-        slots[1] = typeName
+        slots[1] = typeName;
 
         if (erasedValue !== '') {
           element.parentNode.childNodes.forEach((el) => {
-            if (el.classList.contains(erasedValue)) el.classList.add('disabled')
+            if (el.classList.contains(erasedValue)) el.classList.add('disabled');
           })
         }
       }
@@ -63,7 +52,7 @@ const FilterBox = (props) => {
     const removeFromSelection = () => {
       if (slots[0] === typeName) {
         slots[0] = slots[1];
-        slots[1] = ''
+        slots[1] = '';
       } else if (slots[1] === typeName) {
         slots[1] = '';
       }
@@ -71,20 +60,30 @@ const FilterBox = (props) => {
       element.classList.add('disabled');
     };
 
-    slots.includes(typeName) ? removeFromSelection() : addToSelection()
+    slots.includes(typeName) ? removeFromSelection() : addToSelection();
 
-    setSelectedTags(slots)
-    setFilters({ ...filters, types: slots })
-  }
+    setSelectedTags(slots);
+    setFilters({ ...filters, types: slots });
+  };
 
-  const [isOpen, setIsOpen] = useState(false)
+  const renderStatFilterInput = (statEnumKey, i) => (
+    <label key={i} className="stat-input">
+      <FormSlider
+        max={MAX_STAT_VALUE}
+        handleChange={(event) => handleFilterChange(event, StatEnum[statEnumKey])}
+      />
+      <span>{statEnumKey}</span>
+    </label>
+  );
 
-  const [gen, setGen] = useState(1)
+  const [isOpen, setIsOpen] = useState(false);
+
+  const [gen, setGen] = useState(1);
 
   const [filters, setFilters] = useState({});
   useEffect(submitFilters, [filters]);
 
-  const [selectedTags, setSelectedTags] = useState(['', ''])
+  const [selectedTags, setSelectedTags] = useState(['', '']);
 
   return (
     <div className={`filter-box ${isOpen ? 'open' : ''}`}>
@@ -109,41 +108,21 @@ const FilterBox = (props) => {
         <fieldset>
           <legend>By type</legend>
 
-            <div className="types-container">
-              {TYPES.map((typeName, i) => <TypeTagButton key={i} onClick={handleTypeTagButtonClick} typeName={typeName} isButton={true}/>)}
-            </div>
+          <div className="types-container">
+            {TYPES.map((typeName, i) => <TypeTagButton key={i} onClick={handleTypeTagButtonClick} typeName={typeName} isButton={true}/>)}
+          </div>
         </fieldset>
 
         <fieldset>
           <legend>By stat min. value</legend>
 
           {Object.keys(StatEnum).map(renderStatFilterInput)}
-
-          {/* <label className="statInput">
-            <FormSlider
-              max={STATS_SUM_MAX_VALUE}
-              handleChange={(event) => handleFilterChange(event, 'statSum')}
-            />
-            <span>total</span>
-          </label> */}
         </fieldset>
-
-          {/*
-            <label>final form only / base form only</label> 
-            <label>by gen</label>
-          */
-          }
-
-        {/* <fieldset>
-          <legend>sort</legend>
-          <label>type</label>
-          <label>basestat</label>
-          <label>final form / base form</label>
-        </fieldset> */}
       </form>
+      
       <button className="toggle-btn" onClick={() => setIsOpen(!isOpen)}>filters</button>
     </div>
   );
-}
+};
  
 export default FilterBox;
