@@ -1,0 +1,42 @@
+@keyframes rotate {
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes resize {
+    100% { transform: scaleX(.2) }
+}
+
+@keyframes breathe {
+    100% { opacity: .4; }
+}
+
+.loader {
+    $loader-size: 10vw;
+    $border-width: 1rem;
+
+    position: absolute;
+    top: calc(50% - #{$loader-size / 2});
+    left: calc(50% - #{$loader-size / 2});
+    width: $loader-size;
+    height: $loader-size;
+    border: $border-width solid #39C;
+    border-radius: 50%;
+    animation:
+        breathe 1s alternate infinite both,
+        rotate 2s linear infinite;
+
+    &::before {
+        $w: $loader-size;
+        $c: #E0E0E0;
+        
+        content: '';
+        position: absolute;
+        top: -$w / 2;
+        left: calc(50% - #{$w / 2});
+        width: $w;
+        height: $w;
+        background: radial-gradient($c 50%, adjust-color($c, $alpha: -1));
+        transform-origin: top center;
+        animation: resize 1s linear alternate infinite both;
+    }
+}

@@ -1,0 +1,15 @@
+*, *::before, *::after {
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+:root {
+    --page-background: #E0E0E0;
+    --max-width: 102rem;
+    font-size: 10px;
+}
+
+body {
+    background: var(--page-background);
+    font-family: 'Big Shoulders Display', sans-serif;
+}
