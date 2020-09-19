@@ -1,0 +1,2 @@
+# Ignore generated file languages
+build/** linguist-detectable=false
